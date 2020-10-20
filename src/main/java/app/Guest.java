@@ -6,6 +6,7 @@ package app;
  * also tracks where in the quiz the person is at.
  */
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,13 +18,13 @@ import java.util.List;
  */
 public class Guest {
     String id;
-    Date dob;
+    LocalDate dob;
     String firsName;
     String lastName;
     String address;
     String status;
 
-    public Guest(String id, String firsName, String lastName, Date dob, String address, String status) {
+    public Guest(String id, String firsName, String lastName, LocalDate dob, String address, String status) {
         this.id = id;
         this.dob = dob;
         this.firsName = firsName;
@@ -44,11 +45,11 @@ public class Guest {
         this.id = id;
     }
 
-    public Date getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 

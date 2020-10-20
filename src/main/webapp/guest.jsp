@@ -11,11 +11,12 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 
-    <script src="resources/js/guestinfo.js"></script>
+    <script src="js/guestInfo.js"></script>
     <title>Title</title>
 </head>
 <body>
 <div>
+    ID: <input type="text" required id="guestid" value=""><br>
     First Name: <input type="text" required id="guestfirstname" value=""><br>
     Last Name: <input type="text" required id="guestlastname" value=""> <br>
     Date of Birth: <input type="text" required id="guestdob" value=""> <br>
