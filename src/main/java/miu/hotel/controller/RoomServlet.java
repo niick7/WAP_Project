@@ -1,6 +1,7 @@
 package miu.hotel.controller;
 
 import com.google.gson.Gson;
+import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
 
 import javax.servlet.ServletException;
@@ -30,11 +31,13 @@ public class RoomServlet extends HttpServlet {
         if (session.getAttribute("rooms") == null){
             System.out.println("Firsttime");
             list.add(room);
+            Rooms.roomList.add(room);
             session.setAttribute("rooms", list);
         } else {
            System.out.println("Not Firsttime");
            list = (List<Room>)session.getAttribute("rooms");
            list.add(room);
+           Rooms.roomList.add(room);
            session.setAttribute("rooms", list);
         }
         String jSon = null;
