@@ -12,9 +12,19 @@ public class RoomService {
         .findFirst();
   }
 
-  public static boolean addRoom(Room room) {
+  public static boolean edit(Room room) {
     Rooms.roomList.add(room);
     return true;
+  }
 
+  public static boolean add(Room room) {
+    Rooms.roomList.add(room);
+    return true;
+  }
+
+  public static boolean delete(String roomNo) {
+    findRoomByRoomNum(roomNo)
+        .ifPresent(r -> r.setActive(false));
+    return true;
   }
 }

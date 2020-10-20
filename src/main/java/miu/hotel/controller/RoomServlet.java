@@ -93,8 +93,6 @@ public class RoomServlet extends HttpServlet {
         doGet(req, resp);
     }
 
-
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().setAttribute("roomList", Rooms.roomList);
 
