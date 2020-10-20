@@ -19,22 +19,22 @@ import java.util.List;
 public class Guest {
     String id;
     LocalDate dob;
-    String firsName;
+    String firstName;
     String lastName;
     String address;
-    String status;
+    String gender;
 
-    public Guest(String id, String firsName, String lastName, LocalDate dob, String address, String status) {
+    public Guest(String id, String firstName, String lastName, LocalDate dob, String address, String gender) {
         this.id = id;
         this.dob = dob;
-        this.firsName = firsName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.status = status;
+        this.gender = gender;
     }
 
-    public Guest(String firsName, String lastName) {
-        this.firsName = firsName;
+    public Guest(String firstName, String lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
     }
     public String getId() {
@@ -54,11 +54,11 @@ public class Guest {
     }
 
     public String getFirsName() {
-        return firsName;
+        return firstName;
     }
 
     public void setFirsName(String firsName) {
-        this.firsName = firsName;
+        this.firstName = firsName;
     }
 
     public String getLastName() {
@@ -77,11 +77,11 @@ public class Guest {
         this.address = address;
     }
 
-    public String getStatus() {
-        return status;
+    public String getGender() {
+        return gender;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setGender(String status) {
+        this.gender = gender;
     }
 }
