@@ -28,23 +28,7 @@ public class Room {
     return type;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+  private boolean isAvailable;
 
-  public float getPrice() {
-    return price;
-  }
-
-  public void setPrice(float price) {
-    this.price = price;
-  }
-
-  public int getGuestNum() {
-    return guestNum;
-  }
-
-  public void setGuestNum(int guestNum) {
-    this.guestNum = guestNum;
-  }
+  
 }
