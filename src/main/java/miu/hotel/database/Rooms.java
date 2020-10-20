@@ -6,13 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Rooms {
-  List<Room> roomList = new ArrayList<>();
 
-  public List<Room> getRoomList() {
-    return roomList;
-  }
+  public static List<Room> roomList = new ArrayList<>();
 
-  public void setRoomList(List<Room> roomList) {
-    this.roomList = roomList;
-  }
 }

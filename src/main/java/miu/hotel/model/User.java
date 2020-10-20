@@ -3,7 +3,7 @@ package miu.hotel.model;
 public class User {
   private long id;
 
-  private String name;
+  private String userName;
 
   private String password;
 
@@ -15,12 +15,12 @@ public class User {
     this.id = id;
   }
 
-  public String getName() {
-    return name;
+  public String getUserName() {
+    return userName;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setUserName(String userName) {
+    this.userName = userName;
   }
 
   public String getPassword() {
@@ -35,7 +35,7 @@ public class User {
   public String toString() {
     return "User{" +
         "id=" + id +
-        ", name='" + name + '\'' +
+        ", name='" + userName + '\'' +
         ", password='" + password + '\'' +
         '}';
   }
