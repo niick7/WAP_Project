@@ -1,6 +1,8 @@
 package miu.hotel.controller;
 
 import miu.hotel.database.Login;
+import miu.hotel.database.Users;
+import miu.hotel.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.WriteListener;
@@ -18,7 +20,9 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
-        if ((username.equals(Login.USERNAME)) && (password.equals(Login.PASSWORD))){
+
+        User u = Users.userList.get(0);
+        if ((username.equals(u.getUserName())) && (password.equals(u.getPassword()))){
             session.setAttribute("username", username);
             response.sendRedirect("room.jsp");
         } else {

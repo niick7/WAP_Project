@@ -1,10 +1,12 @@
 package miu.hotel.model;
 
 public class Room {
+  private long id;
   private String roomNo;
   private String type;
   private float price;
   private int guestNum;
+  private boolean isAvailable;
 
   public Room(){
     super();
@@ -14,6 +16,14 @@ public class Room {
     this.type = type;
     this.price = price;
     this.guestNum = guestNum;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
   }
 
   public String getRoomNo() {
@@ -46,5 +56,13 @@ public class Room {
 
   public void setGuestNum(int guestNum) {
     this.guestNum = guestNum;
+  }
+
+  public boolean isAvailable() {
+    return isAvailable;
+  }
+
+  public void setAvailable(boolean available) {
+    isAvailable = available;
   }
 }
