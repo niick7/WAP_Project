@@ -2,20 +2,21 @@ package miu.hotel.model;
 
 import java.time.LocalDate;
 
-public class Room {
+public class RoomLog {
   private long id;
   private String roomNo;
   private String type;
   private float price;
   private int guestNum;
   private boolean isAvailable;
+  private LocalDate dateUsing;
 
   private boolean active; // false when room in active
 
-  public Room(){
+  public RoomLog(){
     super();
   }
-  public Room(String roomNo, String type, float price, int guestNum){
+  public RoomLog(String roomNo, String type, float price, int guestNum){
     this.roomNo = roomNo;
     this.type = type;
     this.price = price;
@@ -78,4 +79,11 @@ public class Room {
     isAvailable = available;
   }
 
+  public LocalDate getDateUsing() {
+    return dateUsing;
+  }
+
+  public void setDateUsing(LocalDate dateUsing) {
+    this.dateUsing = dateUsing;
+  }
 }
