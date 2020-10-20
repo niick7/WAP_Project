@@ -1,6 +1,7 @@
 package miu.hotel.controller;
 
 import com.google.gson.Gson;
+import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
 
 import javax.servlet.ServletException;
@@ -14,7 +15,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/RoomServlet")
+@WebServlet(name = "RoomServlet", urlPatterns = {"/RoomServlet"})
 public class RoomServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,22 +25,28 @@ public class RoomServlet extends HttpServlet {
         float  roomPrice= Float.parseFloat(request.getParameter("roomprice"));
         int maxGuest = Integer.parseInt(request.getParameter("maxguest"));
         Room room = new Room(roomNo, roomType, roomPrice, maxGuest);
+        System.out.println(room.getRoomNo());
         HttpSession session = request.getSession();
         List<Room> list = new ArrayList<Room>();
-        if (session.getAttribute("listroom") == null){
+        if (session.getAttribute("rooms") == null){
+            System.out.println("Firsttime");
             list.add(room);
-            session.setAttribute("list", room);
+            Rooms.roomList.add(room);
+            session.setAttribute("rooms", list);
         } else {
-           list = (List<Room>)session.getAttribute("listroom");
+           System.out.println("Not Firsttime");
+           list = (List<Room>)session.getAttribute("rooms");
            list.add(room);
-           session.setAttribute("list", room);
+           Rooms.roomList.add(room);
+           session.setAttribute("rooms", list);
         }
         String jSon = null;
         jSon = new Gson().toJson(list);
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
+        System.out.println(jSon);
         out.write(jSon);
     }
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

@@ -8,12 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/sign_in.css" />
 </head>
 <body>
-<form action = "LoginServlet" method = "post">
-    Username: <input type = "text" required id= "username" name= "username"><br>
-    Password: <input type = "text" required id= "password" name= "password"><input type= "submit" value = "Login">
+<form class="form-signin" action = "LoginServlet" method= "post">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <input id="inputEmail" name= "username" class="form-control" placeholder="Username" required >
+    <input type="password" name= "password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">© 2020</p>
 </form>
 
 </body>

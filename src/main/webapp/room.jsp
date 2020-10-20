@@ -33,6 +33,7 @@
     <fieldset>
         <legend> List of Rooms</legend>
         <div id="listroom"></div>
+
     </fieldset>
 </body>
 </html>
