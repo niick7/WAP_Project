@@ -6,9 +6,15 @@ import miu.hotel.model.Room;
 import java.util.Optional;
 
 public class RoomService {
-  public static Optional<Room> findRoomByRoomNum (String roomNo) {
+  public static Optional<Room> findRoomByRoomNum(String roomNo) {
     return Rooms.roomList.stream()
         .filter(room -> room.getRoomNo().equals(roomNo))
         .findFirst();
+  }
+
+  public static boolean addRoom(Room room) {
+    Rooms.roomList.add(room);
+    return true;
+
   }
 }
