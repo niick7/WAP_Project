@@ -26,9 +26,13 @@ public class RoomReportServlet extends HttpServlet {
 //        List<Room> rooms = Rooms.roomList.stream().filter(room -> room.)
         String dateSearch = request.getParameter("date");
         LocalDate searchDate = LocalDate.parse(dateSearch);
+        System.out.println(searchDate);
         List<RoomLog> list = RoomLogs.roomList.stream()
                 .filter(roomLog -> roomLog.getDateUsing().isAfter(searchDate)).collect(Collectors.toList());
+        System.out.println(list);
         HttpSession session = request.getSession();
         session.setAttribute("roomLogs", list);
+        session.setAttribute("dateSearch", dateSearch);
+        response.sendRedirect("roomreport.jsp");
     }
 }
