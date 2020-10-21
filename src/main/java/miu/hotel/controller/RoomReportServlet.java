@@ -27,6 +27,7 @@ public class RoomReportServlet extends HttpServlet {
         String dateSearch = request.getParameter("date");
         LocalDate searchDate = LocalDate.parse(dateSearch);
         System.out.println(searchDate);
+        System.out.println("RoomList: "+RoomLogs.roomList.size());
         List<RoomLog> list = RoomLogs.roomList.stream()
                 .filter(roomLog -> roomLog.getDateUsing().isAfter(searchDate)).collect(Collectors.toList());
         System.out.println(list);

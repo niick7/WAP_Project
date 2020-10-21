@@ -47,16 +47,11 @@
             <input type="hidden" name="actionCommand" value="add">
             <button class="btn btn-primary" type="submit">Add New</button>
             <input class="btn btn-secondary" type="reset" value="Cancel"/>
+            <a href="roomreport.jsp" class="btn btn-info" role="button" aria-pressed="true" >Go to Report</a>
         </form>
     </div>
 </div>
 
-<hr>
-<div class="container">
-    <a href="roomreport.jsp" class="btn btn-info" role="button" aria-pressed="true">Go to Report</a>
-</div>
-
-<hr>
 <div class="container">
     <h1>List of Rooms</h1>
     <div class="row">
@@ -110,6 +105,13 @@
                                 <input type="hidden" name="actionCommand" value="delete">
                                 <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
+
+                            <form action="EditRoomServlet" method="get">
+                                <input type="hidden" name="roomNo" value="${room.roomNo}">
+                                <input type="hidden" name="actionCommand" value="edit">
+                                <button class="btn btn-warning" type="submit">Edit</button>
+                            </form>
+
                         </c:if>
                     </td>
                 </tr>
