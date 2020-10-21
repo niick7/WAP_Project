@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         User u = Users.userList.get(0);
         if ((username.equals(u.getUserName())) && (password.equals(u.getPassword()))){
             session.setAttribute("username", username);
-            response.sendRedirect("room.jsp");
+            response.sendRedirect("RoomServlet");
         } else {
             PrintWriter out = response.getWriter();
             out.println("<font color = 'red'> Either username or password is not correct</font>");
