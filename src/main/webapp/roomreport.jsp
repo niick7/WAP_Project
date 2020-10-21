@@ -13,7 +13,6 @@
     <title>Sign In</title>
     <%@include file="partial/header_assests.jsp" %>
 
-    <link rel="stylesheet" href="css/sign_in.css"/>
 </head>
 <body>
 <%@include file="partial/top.jsp" %>
