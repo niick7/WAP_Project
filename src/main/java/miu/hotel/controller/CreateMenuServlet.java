@@ -1,6 +1,7 @@
 package miu.hotel.controller;
 
 import com.google.gson.Gson;
+import miu.hotel.database.Menus;
 import miu.hotel.model.Menu;
 
 import javax.servlet.ServletException;
@@ -24,7 +25,8 @@ public class CreateMenuServlet extends HttpServlet {
     HttpSession session = req.getSession();
     List<Menu> menus = new ArrayList<>();
     if(session.getAttribute("menus") != null) {
-      menus = ((List<Menu>) session.getAttribute("menus"));
+//      menus = ((List<Menu>) session.getAttribute("menus"));
+      menus = Menus.menuList;
     }
     Menu menu = new Menu(item_name, price);
     menus.add(menu);
