@@ -107,13 +107,13 @@
                                 </td>
                                 <td>
                                     <c:if test="${room.active}">
-                                        <form action="RoomServlet" method="post">
+                                        <form action="RoomServlet" method="post" style="display: inline">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="actionCommand" value="delete">
                                             <button class="btn btn-danger" type="submit">Delete</button>
                                         </form>
 
-                                        <form action="EditRoomServlet" method="get">
+                                        <form action="EditRoomServlet" method="get" style="display: inline">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="actionCommand" value="edit">
                                             <button class="btn btn-warning" type="submit">Edit</button>
