@@ -83,6 +83,7 @@
                                             <input type="text"
                                                    name="guestId"
                                                    value=""
+                                                   placeholder="Guest Id"
                                                 ${ !room.active ? 'disabled="disabled"' : ''}>
                                             <button class="btn btn-primary"
                                                     type="submit"
