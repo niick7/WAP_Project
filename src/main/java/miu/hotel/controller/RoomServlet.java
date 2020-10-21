@@ -23,14 +23,14 @@ public class RoomServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String roomNo = req.getParameter("roomno");
+        String roomNo = req.getParameter("roomNo");
         String actionCommand = req.getParameter("actionCommand");
 
         if ("add".equals(actionCommand)) {
-            String roomTypeString = req.getParameter("roomtype");
+            String roomTypeString = req.getParameter("roomType");
             RoomType roomType = RoomType.from(roomTypeString);
-            Float price = Float.valueOf(req.getParameter("roomprice"));
-            Integer maxguest = Integer.valueOf(req.getParameter("maxguest"));
+            Float price = Float.valueOf(req.getParameter("price"));
+            Integer maxguest = Integer.valueOf(req.getParameter("maxGuest"));
 
             Room r = new Room();
             r.setRoomNo(roomNo);
