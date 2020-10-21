@@ -21,15 +21,16 @@
 <div class="container">
     <%
         List<RoomLog> list = new ArrayList<RoomLog>();
-        if (session.getAttribute("roomLog") != null)
-            list = (List<RoomLog>) session.getAttribute("roomLog");
+        if (session.getAttribute("roomLogs") != null)
+            list = (List<RoomLog>) session.getAttribute("roomLogs");
     %>
-    <form class="form-signin" action="RoomReportServlet" method="get">
+    <form  action="RoomReportServlet" method="get">
         <h1 class="h3 mb-3 font-weight-normal">Please search here!</h1>
-        <input type="date" id="date" name="date" value=<%=session.getAttribute("dateSearch")%> required> <input
-            type="submit" value="Search">
-        <table class="table">
-            <thead class="thead-dark">
+        <input type="date" id="date" name="date" value=<%=session.getAttribute("dateSearch")%> required>
+        <input type="submit" class="btn btn-primary"  value="Search">
+        <button type="button" class="btn btn-primary" onclick="window.print()">Print Report</button>
+        <table class="table table-striped">
+            <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">No</th>
@@ -70,8 +71,5 @@
     </form>
 </div>
 
-<div class="container">
-    <button type="button" class="btn btn-primary" onclick="window.print()">Print out this Report</button>
-</div>
 </body>
 </html>
