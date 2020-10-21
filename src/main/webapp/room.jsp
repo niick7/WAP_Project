@@ -82,7 +82,7 @@
                         <c:if test="${room.available}">
                             <form action="BookRoomServlet" method="post">
                                 <input type="hidden" name="roomNo" value="${room.roomNo}">
-                                <input type="hidden" name="checkin" value="true">
+                                <input type="hidden" name="checkin" value="checkin">
                                 <button class="btn btn-primary"
                                         type="submit"
                                     ${ !room.active ? 'disabled="disabled"' : ''} >
@@ -94,7 +94,7 @@
                         <c:if test="${!room.available}">
                             <form action="BookRoomServlet" method="post">
                                 <input type="hidden" name="roomNo" value="${room.roomNo}">
-                                <input type="hidden" name="checkin" value="false">
+                                <input type="hidden" name="checkin" value="checkout">
                                 <button class="btn btn-success"
                                         type="submit"
                                     ${ !room.active ? 'disabled="disabled"' : ''} >

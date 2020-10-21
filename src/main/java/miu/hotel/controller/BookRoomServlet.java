@@ -3,6 +3,7 @@ package miu.hotel.controller;
 import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
 import miu.hotel.model.RoomLog;
+import miu.hotel.service.RoomLogService;
 import miu.hotel.service.RoomService;
 
 import javax.servlet.ServletException;
@@ -36,9 +37,10 @@ public class BookRoomServlet extends HttpServlet {
             roomLog.setGuestNum(room.getGuestNum());
 
             roomLog.setDateUsing(LocalDate.now());
+            RoomLogService.add(roomLog);
           }
         }); // find and uncheck
 
-    req.getRequestDispatcher("RoomServlet").forward(req, resp);
+    resp.sendRedirect("RoomServlet");
   }
 }
