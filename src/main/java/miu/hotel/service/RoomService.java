@@ -12,16 +12,16 @@ public class RoomService {
         .findFirst();
   }
 
+  public static boolean add(Room room) {
+    Rooms.roomList.add(room);
+    return true;
+  }
+
   public static boolean edit(Room room) {
     findRoomByRoomNum(room.getRoomNo()).ifPresent(r -> {
       r.setType(room.getType());
       r.setPrice(room.getPrice());
     });
-    return true;
-  }
-
-  public static boolean add(Room room) {
-    Rooms.roomList.add(room);
     return true;
   }
 
