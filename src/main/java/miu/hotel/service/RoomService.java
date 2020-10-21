@@ -13,7 +13,10 @@ public class RoomService {
   }
 
   public static boolean edit(Room room) {
-    Rooms.roomList.add(room);
+    findRoomByRoomNum(room.getRoomNo()).ifPresent(r -> {
+      r.setType(room.getType());
+      r.setPrice(room.getPrice());
+    });
     return true;
   }
 

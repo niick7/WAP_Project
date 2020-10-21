@@ -55,39 +55,35 @@ public class RoomServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String roomNo = req.getParameter("roomNo");
-        String addString = req.getParameter("add");
-        boolean isAdd = Boolean.valueOf(addString);
-        if (isAdd) {
+        String actionCommand = req.getParameter("actionCommand");
+
+        if ("add".equals(actionCommand)) {
             String roomTypeString = req.getParameter("roomType");
             RoomType roomType = RoomType.from(roomTypeString);
             Float price = Float.valueOf(req.getParameter("price"));
 
             Room r = new Room();
-
             r.setRoomNo(roomNo);
             r.setType(roomType.getName());
             r.setPrice(price);
+
+            RoomService.add(r);
         }
 
-        Optional<Room> roomOptional = RoomService.findRoomByRoomNum(roomNo);
-
-        String deleteString = req.getParameter("delete");
-        boolean isDelete = Boolean.valueOf(deleteString);
-        if (isDelete) {
-            roomOptional.ifPresent(r -> r.setActive(false));
+        if ("delete".equals(actionCommand)) {
+            RoomService.delete(roomNo);
         }
 
-        String editString = req.getParameter("edit");
-        boolean isEdit = Boolean.valueOf(editString);
-        if (isEdit) {
+        if ("edit".equals(actionCommand)) {
             String roomTypeString = req.getParameter("roomType");
             RoomType roomType = RoomType.from(roomTypeString);
             Float price = Float.valueOf(req.getParameter("price"));
 
-            roomOptional.ifPresent(r -> {
-                r.setType(roomType.getName());
-                r.setPrice(price);
-            });
+            Room room = new Room();
+            room.setRoomNo(roomNo);
+            room.setType(roomType.getName());
+            room.setPrice(price);
+            RoomService.edit(room);
         }
 
         doGet(req, resp);
