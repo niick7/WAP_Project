@@ -8,7 +8,7 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
-<%@ page import="miu.hotel.database.Menu" %>
+<%@ page import="miu.hotel.model.Menu" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%

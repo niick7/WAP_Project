@@ -1,13 +1,19 @@
-package miu.hotel.database;
+package miu.hotel.model;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Menu {
+  private static final AtomicInteger count = new AtomicInteger(0);
+  private final long id;
   private String item_name;
   private double price;
 
   public Menu(String item_name, double price) {
+    this.id = count.incrementAndGet();
     this.item_name = item_name;
     this.price = price;
   }
+
+  public long getId() { return id; }
 
   public String getItem_name() {
     return item_name;
