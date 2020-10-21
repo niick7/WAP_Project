@@ -41,9 +41,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="menu" items="${sessionScope.menus}" varStatus="loop">
+                                <c:forEach var="menu" items="${sessionScope.menus}">
                                     <tr>
-                                        <td>${loop.index + 1}</td>
+                                        <td>${menu.id}</td>
                                         <td>${menu.item_name}</td>
                                         <td>${String.format("%.2f", menu.price)}</td>
                                         <td></td>
