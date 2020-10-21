@@ -2,7 +2,7 @@ package miu.hotel.controller;
 
 
 import com.google.gson.Gson;
-import miu.hotel.database.Guest;
+import miu.hotel.model.Guest;
 import miu.hotel.database.Guests;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "GuestUpdateServlet", urlPatterns = {"/GuestUpdateServlet.ajax"})
 public class GuestUpdateServlet extends HttpServlet {

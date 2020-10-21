@@ -8,6 +8,7 @@ public class RoomLog {
   private String type;
   private float price;
   private int guestNum;
+  private String guestId;
   private LocalDate dateUsing;
 
   private String customerId;
@@ -23,6 +24,14 @@ public class RoomLog {
     this.type = type;
     this.price = price;
     this.guestNum = guestNum;
+  }
+
+  public String getGuestId() {
+    return guestId;
+  }
+
+  public void setGuestId(String guestId) {
+    this.guestId = guestId;
   }
 
   public String getCustomerId() {
