@@ -49,7 +49,7 @@
                         <input type="hidden" name="actionCommand" value="add">
                         <button class="btn btn-primary" type="submit">Add New</button>
                         <input class="btn btn-secondary" type="reset" value="Cancel"/>
-                        <a href="roomreport.jsp" class="btn btn-info" role="button" aria-pressed="true">Go to Report</a>
+
                     </form>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                                 <td>${room.guestNum}</td>
                                 <td>
                                     <c:if test="${room.available}">
-                                        <form action="BookRoomServlet" method="post">
+                                        <form action="BookingServlet" method="post">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="checkin" value="checkin">
                                             <button class="btn btn-primary"
@@ -89,7 +89,7 @@
                                     </c:if>
 
                                     <c:if test="${!room.available}">
-                                        <form action="BookRoomServlet" method="post">
+                                        <form action="BookingServlet" method="post">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="checkin" value="checkout">
                                             <button class="btn btn-success"
