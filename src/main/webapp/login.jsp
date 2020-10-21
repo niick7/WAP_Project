@@ -1,15 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Thai Nguyen
-  Date: 10/20/2020
-  Time: 1:13 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
+
 <!DOCTYPE html>
+
 <html>
 <head>
-    <title>Sign In</title>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <%@include file="partial/header_assests.jsp" %>
 </head>
 
@@ -27,7 +25,7 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control" id="password">
                 </div>
-                <input type="submit" class="btn btn-primary"></input>
+                <input type="submit" class="btn btn-primary"/>
             </form>
         </div>
     </div>
