@@ -31,7 +31,7 @@
                         </form>
                     </div>
                     <div class="table-responsive">
-                        <table id="list_menus" class="table table-striped table-sm">
+                        <table id="list_menus" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -46,7 +46,10 @@
                                         <td>${menu.id}</td>
                                         <td>${menu.item_name}</td>
                                         <td>${String.format("%.2f", menu.price)}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="edit_menu?id=${menu.id}" type="button" class="btn btn-warning">Edit</a>
+                                            <a href="delete_menu?id=${menu.id}" type="button" class="btn btn-danger ml-1" onclick="return confirm('Are you sure?')">Delete</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
