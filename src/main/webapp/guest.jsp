@@ -74,7 +74,6 @@
                         </div>
                     </div>
                     <button id="btnInsertGuest" class='btn btn-primary'> Insert</button>
-                    <button id="btnUpdateGuest" class='btn btn-success'> Update</button>
                 </form>
             </div>
         </main>
