@@ -27,7 +27,7 @@
                         list = (List<RoomLog>) session.getAttribute("roomLogs");
                 %>
                 <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-                <div class="elfsight-app-06e4f94e-8432-4af1-b582-95f775405096"></div>
+                <div class="elfsight-app-05671b58-d6b9-41df-ab32-0779428eb750"></div>
 
                 <form action="RoomReportServlet" method="get">
                     <h1 class="h3 mb-3 font-weight-normal">Please search here!</h1>
