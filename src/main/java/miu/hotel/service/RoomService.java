@@ -3,7 +3,9 @@ package miu.hotel.service;
 import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class RoomService {
   public static Optional<Room> findRoomByRoomNum(String roomNo) {
@@ -13,6 +15,8 @@ public class RoomService {
   }
 
   public static boolean add(Room room) {
+    room.setAvailable(true);
+    room.setActive(true);
     Rooms.roomList.add(room);
     return true;
   }
@@ -29,5 +33,15 @@ public class RoomService {
     findRoomByRoomNum(roomNo)
         .ifPresent(r -> r.setActive(false));
     return true;
+  }
+
+  public static List<Room> getAllRoom() {
+    return Rooms.roomList;
+  }
+
+  public static List<Room> getActiveRoom() {
+    return Rooms.roomList.stream()
+        .filter(Room::isActive)
+        .collect(Collectors.toList());
   }
 }
