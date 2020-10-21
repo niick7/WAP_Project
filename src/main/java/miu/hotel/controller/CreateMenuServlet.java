@@ -23,14 +23,14 @@ public class CreateMenuServlet extends HttpServlet {
     double price = Double.parseDouble(req.getParameter("price"));
 
     HttpSession session = req.getSession();
-    List<Menu> menus = new ArrayList<>();
-    if(session.getAttribute("menus") != null) {
+    List<Menu> menus = Menus.menuList;
+//    if(session.getAttribute("menus") != null) {
 //      menus = ((List<Menu>) session.getAttribute("menus"));
-      menus = Menus.menuList;
-    }
+//      menus = Menus.menuList;
+//    }
     Menu menu = new Menu(item_name, price);
     menus.add(menu);
-    session.setAttribute("menus", menus);
+//    session.setAttribute("menus", menus);
     Gson json = new Gson();
 
     PrintWriter out = resp.getWriter();
