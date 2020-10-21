@@ -36,7 +36,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Item Name</th>
-                                    <th>Price</th>
+                                    <th>Price(USD)</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>

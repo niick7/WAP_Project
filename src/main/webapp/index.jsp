@@ -13,6 +13,7 @@
     </head>
     <body>
         <%@include file="partial/top.jsp" %>
+        <%@include file="initial_data/menu.jsp" %>
         <div class="container-fluid">
             <div class="row">
                 <%@include file="partial/left.jsp" %>
