@@ -105,6 +105,13 @@
                                 <input type="hidden" name="actionCommand" value="delete">
                                 <button class="btn btn-danger" type="submit">Delete</button>
                             </form>
+
+                            <form action="EditRoomServlet" method="get">
+                                <input type="hidden" name="roomNo" value="${room.roomNo}">
+                                <input type="hidden" name="actionCommand" value="edit">
+                                <button class="btn btn-danger" type="submit">Edit</button>
+                            </form>
+
                         </c:if>
                     </td>
                 </tr>
