@@ -1,7 +1,6 @@
 package miu.hotel.controller;
 
 import com.google.gson.Gson;
-import miu.hotel.database.Guest;
 import miu.hotel.database.Guests;
 
 import javax.servlet.ServletException;
@@ -9,13 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "GuestDeleteServlet", urlPatterns = {"/GuestDeleteServlet.ajax"})
 public class GuestDeleteServlet extends HttpServlet {

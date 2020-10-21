@@ -92,6 +92,10 @@
                                         <form action="BookRoomServlet" method="post">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="checkin" value="checkout">
+                                            <input type="text"
+                                                   name="guestId"
+                                                   value=""
+                                                ${ !room.active ? 'disabled="disabled"' : ''}>
                                             <button class="btn btn-success"
                                                     type="submit"
                                                 ${ !room.active ? 'disabled="disabled"' : ''} >

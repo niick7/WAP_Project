@@ -21,6 +21,7 @@ public class BookRoomServlet extends HttpServlet {
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String roomNo = req.getParameter("roomNo");
     String checkin = req.getParameter("checkin");
+    String guestId = req.getParameter("guestId");
 
     RoomService.findRoomByRoomNum(roomNo)
         .filter(Room::isActive)
@@ -37,6 +38,7 @@ public class BookRoomServlet extends HttpServlet {
             roomLog.setGuestNum(room.getGuestNum());
 
             roomLog.setDateUsing(LocalDate.now());
+            roomLog.setGuestId(guestId);
             RoomLogService.add(roomLog);
           }
         }); // find and uncheck
