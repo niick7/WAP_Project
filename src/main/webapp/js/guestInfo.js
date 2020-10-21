@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("#btnInsertGuest").click(insertGuest);
     $("#btnDeleteGuest").click(deleteGuest);
     $("#btnUpdateGuest").click(updateGuest);
-    $("#btnGuestReport").click(getNewGuest30Days);
+
 
     $.ajax("GuestServlet.ajax", {
         type: "get",
