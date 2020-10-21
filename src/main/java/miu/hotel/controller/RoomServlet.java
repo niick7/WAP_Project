@@ -21,47 +21,16 @@ import java.util.Optional;
 @WebServlet("/RoomServlet")
 public class RoomServlet extends HttpServlet {
 
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("doPost of RoomServlet");
-//        String roomNo = request.getParameter("roomno");
-//        String roomType = request.getParameter("roomtype");
-//        float  roomPrice= Float.parseFloat(request.getParameter("roomprice"));
-//        int maxGuest = Integer.parseInt(request.getParameter("maxguest"));
-//        Room room = new Room(roomNo, roomType, roomPrice, maxGuest);
-//        System.out.println(room.getRoomNo());
-//        HttpSession session = request.getSession();
-//        List<Room> list = new ArrayList<Room>();
-//        if (session.getAttribute("rooms") == null){
-//            System.out.println("Firsttime");
-//            list.add(room);
-//            session.setAttribute("rooms", list);
-//        } else {
-//           System.out.println("Not Firsttime");
-//           list = (List<Room>)session.getAttribute("rooms");
-//           list.add(room);
-//           session.setAttribute("rooms", list);
-//        }
-//        String jSon = null;
-//        jSon = new Gson().toJson(list);
-//        response.setContentType("application/json");
-//        PrintWriter out = response.getWriter();
-//        System.out.println(jSon);
-//        out.write(jSon);
-//
-//    }
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String roomNo = req.getParameter("roomno");
+        String roomNo = req.getParameter("roomNo");
         String actionCommand = req.getParameter("actionCommand");
 
         if ("add".equals(actionCommand)) {
-            String roomTypeString = req.getParameter("roomtype");
+            String roomTypeString = req.getParameter("roomType");
             RoomType roomType = RoomType.from(roomTypeString);
-            Float price = Float.valueOf(req.getParameter("roomprice"));
-            Integer maxguest = Integer.valueOf(req.getParameter("maxguest"));
+            Float price = Float.valueOf(req.getParameter("price"));
+            Integer maxguest = Integer.valueOf(req.getParameter("maxGuest"));
 
             Room r = new Room();
             r.setRoomNo(roomNo);
@@ -94,8 +63,9 @@ public class RoomServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("roomList", Rooms.roomList);
+        request.getSession().setAttribute("roomList", RoomService.getAllRoom());
 
-        response.sendRedirect("room.jsp");
+        request.setAttribute("roomTypes", RoomType.values());
+        request.getRequestDispatcher("room.jsp").forward(request, response);
     }
 }

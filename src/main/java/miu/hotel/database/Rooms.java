@@ -13,11 +13,34 @@ public class Rooms {
   static {
     Room r = new Room();
     r.setRoomNo("001");
-    r.setType(RoomType. SUPERIOR.getName());
+    r.setType(RoomType.SUPERIOR.getName());
     r.setPrice(1000);
-
+    r.setAvailable(true);
     r.setActive(true);
+    roomList.add(r);
 
+    r = new Room();
+    r.setRoomNo("002");
+    r.setType(RoomType.DELUXE.getName());
+    r.setPrice(2000);
+    r.setAvailable(false);
+    r.setActive(true);
+    roomList.add(r);
+
+    r = new Room();
+    r.setRoomNo("003");
+    r.setType(RoomType.DELUXE_VILLA.getName());
+    r.setPrice(3000);
+    r.setAvailable(true);
+    r.setActive(false);
+    roomList.add(r);
+
+    r = new Room();
+    r.setRoomNo("004");
+    r.setType(RoomType.FAMILY_ROOM.getName());
+    r.setPrice(4000);
+    r.setAvailable(false);
+    r.setActive(false);
     roomList.add(r);
   }
 }
