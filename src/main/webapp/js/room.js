@@ -6,6 +6,7 @@ $(document).ready(function(){
         var maxGuest = $("#maxguest").val();
         console.log("....: " + roomNo)
         $.post("RoomServlet", {
+            "actionCommand": "add",
             "roomno": roomNo,
             "roomtype": roomType,
             "roomprice": roomPrice,
