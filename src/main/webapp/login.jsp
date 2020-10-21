@@ -15,7 +15,7 @@
 <body>
 <form class="form-signin" action = "LoginServlet" method= "post">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <input id="inputEmail" name= "username" class="form-control" placeholder="Username" required >
+    <input name= "username" class="form-control" placeholder="Username" required >
     <input type="password" name= "password" id="inputPassword" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
         <label>
