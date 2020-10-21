@@ -1,8 +1,8 @@
 
-package controller;
+package miu.hotel.controller;
 
 
-import app.Guest;
+import miu.hotel.database.Guest;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -15,14 +15,17 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
-@WebServlet(name = "GuestServlet", urlPatterns = {"*.ajax"})
+@WebServlet(name = "GuestServlet", urlPatterns = {"/GuestServlet.ajax"})
 public class GuestServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Go in Guest Servlet");
+        PrintWriter out = response.getWriter();
+        String d = request.getParameter("dob");
+        System.out.println(d);
         LocalDate dob=null;
         if (request.getParameter("dob")!=null)
             dob=(LocalDate.parse(request.getParameter("dob")));
@@ -31,8 +34,6 @@ public class GuestServlet extends HttpServlet {
         String lastname= request.getParameter("lastname");
         String address= request.getParameter("address");
         String gender = request.getParameter(("gender"));
-
-        System.out.println("Go in Guest Servlet");
 
         HttpSession session = request.getSession();
 
@@ -44,23 +45,29 @@ public class GuestServlet extends HttpServlet {
             session.setAttribute("guestlist", list);
 
         }
+        if (list.stream().filter(e -> e.getId().equals(guestId)).count()==1) {
+            System.out.println("Co roi");
+           
+
+        }
       //  long guestid = list.size()+1;
-        System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
+        else
+            list.add(new Guest(guestId, firstname, lastname, dob, address, gender));
+            session.setAttribute("guestlist", list);
+            //   System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
 
-        list.add(new Guest(guestId,firstname,lastname,dob,address,gender));
-        session.setAttribute("guestlist", list);
-        System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
+            System.out.println("List guest: " + list.size());
+            String json = "";
+            json = new Gson().toJson(list);
+            System.out.println("json: " + json);
+            response.setContentType("application/json");
+            out.write(json);
 
-        System.out.println("List guest: "+list.size());
-        String json ="";
-        json = new Gson().toJson(list);
-        System.out.println("json: "+ json);
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        out.write(json);
 
       //  request.getRequestDispatcher("guest.jsp").forward(request, response);
     }
+
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request, response);

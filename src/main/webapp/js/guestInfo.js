@@ -1,6 +1,9 @@
 $(document).ready(function() {
     $("#btnInsertGuest").click(insertGuest);
+    $("#btnDeleteGuest").click(deleteGuest);
+
 });
+
 
 function insertGuest() {
 
@@ -28,11 +31,33 @@ function insertGuest() {
 }
 
 
+function deleteGuest() {
+   // alert ("Home");
+    var guestid = $("#guestid").val();
+
+
+    //  alert(firstname +" " +lastname +" " + address +" "+ guestid +" "+ dob + " "+ gender);
+    $.ajax("GuestDeleteServlet.ajax", {
+        type: "post",
+        data: {
+            guestid: guestid
+        }
+    }).done(displayGuestInfo);
+}
+
+
 function displayGuestInfo(response) {
     // const ul = $('ul#guests');
     // ul.find("li").remove();
     const body = $("tbody");
     body.empty();
+
+    if(response == "userexists") {
+
+        $(".msg").html("Guest is already exists");
+
+    }
+
 
     $.each (response, function (key, value) {
        //ul.append("<li>" + value.firstName + "</li>");
@@ -42,12 +67,10 @@ function displayGuestInfo(response) {
                 "<td>" + value.id + "</td>" +
                 "<td>" + value.firstName + "</td>" +
                 "<td>" + value.lastName + "</td>" +
-                "<td>" + value.dob + "</td>" +
+         //       "<td>" + value.dob.month +"-" + value.dob.day +"-"+value.dob.year + "</td>" +
                  "<td>" + value.gender + "</td>" +
                 "<td>" + value.address + "</td>" +
             "</tr>";
-        // tr.append("<td>" + value.firstName + "</td>");
-        // tr.append("<td>" + value.lastName + "</td>");
         body.append(tr);
     });
     // ul.append("</table>");
