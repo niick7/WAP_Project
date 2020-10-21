@@ -54,18 +54,20 @@ public class RoomServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String roomNo = req.getParameter("roomNo");
+        String roomNo = req.getParameter("roomno");
         String actionCommand = req.getParameter("actionCommand");
 
         if ("add".equals(actionCommand)) {
-            String roomTypeString = req.getParameter("roomType");
+            String roomTypeString = req.getParameter("roomtype");
             RoomType roomType = RoomType.from(roomTypeString);
-            Float price = Float.valueOf(req.getParameter("price"));
+            Float price = Float.valueOf(req.getParameter("roomprice"));
+            Integer maxguest = Integer.valueOf(req.getParameter("maxguest"));
 
             Room r = new Room();
             r.setRoomNo(roomNo);
             r.setType(roomType.getName());
             r.setPrice(price);
+            r.setGuestNum(maxguest);
 
             RoomService.add(r);
         }
@@ -75,14 +77,16 @@ public class RoomServlet extends HttpServlet {
         }
 
         if ("edit".equals(actionCommand)) {
-            String roomTypeString = req.getParameter("roomType");
+            String roomTypeString = req.getParameter("roomtype");
             RoomType roomType = RoomType.from(roomTypeString);
-            Float price = Float.valueOf(req.getParameter("price"));
+            Float price = Float.valueOf(req.getParameter("roomprice"));
+            Integer maxguest = Integer.valueOf(req.getParameter("maxguest"));
 
             Room room = new Room();
             room.setRoomNo(roomNo);
             room.setType(roomType.getName());
             room.setPrice(price);
+            room.setGuestNum(maxguest);
             RoomService.edit(room);
         }
 
