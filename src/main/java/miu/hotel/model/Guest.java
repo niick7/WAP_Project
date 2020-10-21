@@ -1,4 +1,4 @@
-package miu.hotel.database;
+package miu.hotel.model;
 
 /*
  * Guess has a set of questions that can be presented to a person.

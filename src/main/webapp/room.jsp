@@ -77,9 +77,13 @@
                                 <td>${room.guestNum}</td>
                                 <td>
                                     <c:if test="${room.available}">
-                                        <form action="BookingServlet" method="post">
+                                        <form action="BookRoomServlet" method="post">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="checkin" value="checkin">
+                                            <input type="text"
+                                                   name="guestId"
+                                                   value=""
+                                                ${ !room.active ? 'disabled="disabled"' : ''}>
                                             <button class="btn btn-primary"
                                                     type="submit"
                                                 ${ !room.active ? 'disabled="disabled"' : ''} >
@@ -89,7 +93,7 @@
                                     </c:if>
 
                                     <c:if test="${!room.available}">
-                                        <form action="BookingServlet" method="post">
+                                        <form action="BookRoomServlet" method="post">
                                             <input type="hidden" name="roomNo" value="${room.roomNo}">
                                             <input type="hidden" name="checkin" value="checkout">
                                             <button class="btn btn-success"
