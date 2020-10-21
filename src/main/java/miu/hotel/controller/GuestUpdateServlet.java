@@ -19,7 +19,9 @@ import java.util.stream.Collectors;
 
 @WebServlet(name = "GuestUpdateServlet", urlPatterns = {"/GuestUpdateServlet.ajax"})
 public class GuestUpdateServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    System.out.println("Reprot form");
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         HttpSession session =  request.getSession();

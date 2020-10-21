@@ -20,25 +20,27 @@ import java.util.stream.Collectors;
 public class GuestReportServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        System.out.println("GuestReportServlet");
+        LocalDate from = LocalDate.parse(request.getParameter("from"));
+        LocalDate to = LocalDate.parse(request.getParameter("to"));
         int frommonth = (LocalDate.parse(request.getParameter("from")).getMonthValue());
         int fromday = (LocalDate.parse(request.getParameter("from")).getDayOfMonth());
         int fromyear = (LocalDate.parse(request.getParameter("from")).getYear());
 
-
+        System.out.println(fromday + " "+ frommonth +" "+fromyear);
         int tomonth = (LocalDate.parse(request.getParameter("to")).getMonthValue());
         int today = (LocalDate.parse(request.getParameter("to")).getDayOfMonth());
         int toyear = (LocalDate.parse(request.getParameter("to")).getYear());
+        System.out.println(today + " "+ tomonth +" "+toyear);
         response.setContentType("application/json");
     List<Guest> list= Guests.guestlist.stream()
-            .filter(e -> e.getCreatedMonth()>=frommonth)
-            .filter(e -> e.getCretedDay()>=fromday)
-            .filter(e -> e.getCreatedYear()>=fromyear)
-            .filter(e -> e.getCreatedMonth()<=tomonth)
-            .filter(e -> e.getCretedDay()<=today)
-            .filter(e -> e.getCreatedYear()<=toyear)
+            .filter(e -> e.getCreatedDate().compareTo(from)>=0
+            && e.getCreatedDate().compareTo(to)<=0
+            )
             .collect(Collectors.toList());
-        //   System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
 
+        //   System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
+        String nul;
         String json = "";
         json = new Gson().toJson(list);
         System.out.println("json: " + json);
