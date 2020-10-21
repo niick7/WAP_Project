@@ -38,8 +38,9 @@ public class GuestReportServlet extends HttpServlet {
             && e.getCreatedDate().compareTo(to)<=0
             )
             .collect(Collectors.toList());
-        //   System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
 
+        //   System.out.println("address: "+address +" " + guestId +" " + firstname + " "+ lastname +" "+address +" "+ dob +" "+ gender);
+        String nul;
         String json = "";
         json = new Gson().toJson(list);
         System.out.println("json: " + json);
