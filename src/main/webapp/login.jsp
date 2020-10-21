@@ -15,6 +15,10 @@
 <body>
 <form class="form-signin" action = "LoginServlet" method= "post">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-06e4f94e-8432-4af1-b582-95f775405096"></div>
+
     <input name= "username" class="form-control" placeholder="Username" required >
     <input type="password" name= "password" id="inputPassword" class="form-control" placeholder="Password" required>
     <div class="checkbox mb-3">
