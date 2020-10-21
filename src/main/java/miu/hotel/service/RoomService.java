@@ -25,6 +25,7 @@ public class RoomService {
     findRoomByRoomNum(room.getRoomNo()).ifPresent(r -> {
       r.setType(room.getType());
       r.setPrice(room.getPrice());
+      r.setGuestNum(room.getGuestNum());
     });
     return true;
   }

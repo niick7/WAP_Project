@@ -46,10 +46,11 @@ public class RoomServlet extends HttpServlet {
         }
 
         if ("edit".equals(actionCommand)) {
-            String roomTypeString = req.getParameter("roomtype");
+
+            String roomTypeString = req.getParameter("roomType");
             RoomType roomType = RoomType.from(roomTypeString);
-            Float price = Float.valueOf(req.getParameter("roomprice"));
-            Integer maxguest = Integer.valueOf(req.getParameter("maxguest"));
+            Float price = Float.valueOf(req.getParameter("price"));
+            Integer maxguest = Integer.valueOf(req.getParameter("maxGuest"));
 
             Room room = new Room();
             room.setRoomNo(roomNo);
