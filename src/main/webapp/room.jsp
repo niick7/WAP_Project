@@ -109,7 +109,7 @@
                             <form action="EditRoomServlet" method="get">
                                 <input type="hidden" name="roomNo" value="${room.roomNo}">
                                 <input type="hidden" name="actionCommand" value="edit">
-                                <button class="btn btn-danger" type="submit">Edit</button>
+                                <button class="btn btn-warning" type="submit">Edit</button>
                             </form>
 
                         </c:if>

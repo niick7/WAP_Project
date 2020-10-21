@@ -24,6 +24,9 @@
         if (session.getAttribute("roomLogs") != null)
             list = (List<RoomLog>) session.getAttribute("roomLogs");
     %>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-06e4f94e-8432-4af1-b582-95f775405096"></div>
+
     <form  action="RoomReportServlet" method="get">
         <h1 class="h3 mb-3 font-weight-normal">Please search here!</h1>
         <input type="date" id="date" name="date" value=<%=session.getAttribute("dateSearch")%> required>
