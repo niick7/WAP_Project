@@ -14,7 +14,7 @@ import java.util.Set;
 @WebFilter( "/*")
 public class ServletFilter implements Filter {
     private static final Set<String> ALLOWED_PATHS = Collections.unmodifiableSet(new HashSet<>(
-            Arrays.asList("", "/login.jsp", "/LogoutServlet", "/LoginServlet")));
+            Arrays.asList("/login.jsp", "/LogoutServlet", "/LoginServlet")));
     public void init(FilterConfig filterConfig) throws ServletException {
     }
     public void doFilter(ServletRequest req, ServletResponse res,
