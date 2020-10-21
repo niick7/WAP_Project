@@ -73,7 +73,7 @@
                             </select>
                         </div>
                     </div>
-                    <button id="btnInsertGuest" type="submit" class='btn btn-primary'> Insert</button>
+                    <button id="btnInsertGuest" class='btn btn-primary'> Insert</button>
                 </form>
             </div>
         </main>

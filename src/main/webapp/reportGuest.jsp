@@ -18,9 +18,7 @@
             <div class="container">
                 <form>
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label">New Guest for the last 30 days</label>
-                    </div>
+                    <div class="form-group row"> </div>
                     <div class="form-group row">
                         <label for="from" class="col-sm-2 col-form-label">From</label>
                         <div class="col-sm-10">

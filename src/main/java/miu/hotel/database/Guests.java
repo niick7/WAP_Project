@@ -12,19 +12,19 @@ public class Guests {
     public static List<Guest> guestlist = new ArrayList<>();
     static {
 
-        Guest  guest1 = new Guest("000001","Duy Hanh","Nguyen",  LocalDate.of(1990, 1, 13)  ,"FairField IA","Male");
+        Guest  guest1 = new Guest("A000001","Duy Hanh","Nguyen",  LocalDate.of(1990, 1, 13)  ,"FairField IA","Male");
         guest1.setCreatedDate(LocalDate.now().minusDays(10));
 //        guest1.setCreatedMonth(1)
 //        guest1.setCreatedYear(13);
-        Guest  guest2=new Guest("000002","Duy Thai","Nguyen",  LocalDate.of(1991, 1, 13)  ,"FairField IA","Male");
+        Guest  guest2=new Guest("A000002","Duy Thai","Nguyen",  LocalDate.of(1991, 1, 13)  ,"FairField IA","Male");
         guest2.setCreatedDate(LocalDate.now().minusDays(30));
 //        guest2.setCreatedMonth(9);
 //        guest2.setCreatedYear(13);
-        Guest  guest3=new Guest("000003","Van Thai","Nguyen",  LocalDate.of(1992, 1, 13)  ,"FairField IA","Male");
+        Guest  guest3=new Guest("A000003","Van Thai","Nguyen",  LocalDate.of(1992, 1, 13)  ,"FairField IA","Male");
         guest3.setCreatedDate(LocalDate.now().minusDays(90));
 //        guest1.setCreatedMonth(1);
 //        guest1.setCreatedYear(13);
-        Guest  guest4=new Guest("000004","Nhan","Vo",  LocalDate.of(1993, 1, 13)  ,"FairField IA","Male");
+        Guest  guest4=new Guest("A000004","Nhan","Vo",  LocalDate.of(1993, 1, 13)  ,"FairField IA","Male");
         guest4.setCreatedDate(LocalDate.now().minusDays(365));
         //        guest1.setCreatedYear(2020);
 //        guest1.setCreatedMonth(10);

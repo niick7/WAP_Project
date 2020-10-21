@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Menu {
   private static final AtomicInteger count = new AtomicInteger(0);
-  private final long id;
+  private final int id;
   private String item_name;
   private double price;
 
@@ -13,7 +13,7 @@ public class Menu {
     this.price = price;
   }
 
-  public long getId() { return id; }
+  public int getId() { return id; }
 
   public String getItem_name() {
     return item_name;
