@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 @WebServlet(name = "BookedServlet", urlPatterns = {"/BookingServlet"})
-public class BookingServlet extends HttpServlet {
+public class BookRoomServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String roomNo = req.getParameter("roomNo");

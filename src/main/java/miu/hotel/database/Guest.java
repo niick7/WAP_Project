@@ -23,6 +23,47 @@ public class Guest {
     String lastName;
     String address;
     String gender;
+    int createdMonth;
+
+    public int getCreatedMonth() {
+        return createdMonth;
+    }
+
+    public void setCreatedMonth(int createdMonth) {
+        this.createdMonth = createdMonth;
+    }
+
+    public int getCreatedYear() {
+        return createdYear;
+    }
+
+    public void setCreatedYear(int createdYear) {
+        this.createdYear = createdYear;
+    }
+
+    public int getCretedDay() {
+        return cretedDay;
+    }
+
+    public void setCretedDay(int cretedDay) {
+        this.cretedDay = cretedDay;
+    }
+
+    int createdYear;
+    int cretedDay;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+
+
+
+
 
     public Guest(String id, String firstName, String lastName, LocalDate dob, String address, String gender) {
         this.id = id;
@@ -31,6 +72,10 @@ public class Guest {
         this.lastName = lastName;
         this.address = address;
         this.gender = gender;
+        this.createdMonth=LocalDate.now().getDayOfMonth();
+        this.createdYear=LocalDate.now().getYear();
+        this.cretedDay=LocalDate.now().getMonthValue();
+
     }
 
     public Guest(String firstName, String lastName) {
