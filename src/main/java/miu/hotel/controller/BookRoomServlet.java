@@ -2,8 +2,6 @@ package miu.hotel.controller;
 
 import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
-import miu.hotel.model.RoomLog;
-import miu.hotel.service.RoomLogService;
 import miu.hotel.service.RoomService;
 
 import javax.servlet.ServletException;
@@ -15,32 +13,20 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Optional;
 
-@WebServlet("/BookRoomServlet")
+@WebServlet(name = "BookedServlet", urlPatterns = {"/BookingServlet"})
 public class BookRoomServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     String roomNo = req.getParameter("roomNo");
-    String checkin = req.getParameter("checkin");
+    String isCheckInString = req.getParameter("isCheckIn");
 
     RoomService.findRoomByRoomNum(roomNo)
         .filter(Room::isActive)
         .ifPresent(room -> {
-          boolean isCheckIn = "checkin".equals(checkin);
-          room.setAvailable(!isCheckIn);
-
-          if(isCheckIn){
-            RoomLog roomLog = new RoomLog();
-
-            roomLog.setRoomNo(room.getRoomNo());
-            roomLog.setType(room.getType());
-            roomLog.setPrice(room.getPrice());
-            roomLog.setGuestNum(room.getGuestNum());
-
-            roomLog.setDateUsing(LocalDate.now());
-            RoomLogService.add(roomLog);
-          }
+          boolean isCheckIn = Boolean.valueOf(isCheckInString);
+          room.setAvailable(isCheckIn);
         }); // find and uncheck
 
-    resp.sendRedirect("RoomServlet");
+    req.getRequestDispatcher("RoomServlet").forward(req, resp);
   }
 }
