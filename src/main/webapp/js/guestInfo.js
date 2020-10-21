@@ -95,7 +95,7 @@ function get(guestid) {
 }
 
 function getNewGuest30Days() {
-    alert("eh");
+
     var from =$("#from").val();
     var to =$("#to").val();
     $.ajax("GuestReportServlet.ajax", {
@@ -104,7 +104,7 @@ function getNewGuest30Days() {
             from:from,
             to:to
         }
-    }).done(displayGuestReport);
+    }).done(displayGuestInfo);
 }
 
 function displayGuestInfo(response) {
@@ -112,13 +112,6 @@ function displayGuestInfo(response) {
     // ul.find("li").remove();
     const body = $("tbody");
     body.empty();
-
-    if(response == "userexists") {
-
-        $(".msg").html("Guest is already exists");
-
-    }
-
 
     $.each (response, function (key, value) {
        //ul.append("<li>" + value.firstName + "</li>");
@@ -148,10 +141,8 @@ function displayGuestReport(response) {
     const body = $("tbody");
     body.empty();
 
-
     $.each (response, function (key, value) {
-        //ul.append("<li>" + value.firstName + "</li>");
-        //  ul.append( value.firstName  );
+
         let tr =
             "<tr>" +
             "<td>" + value.id + "</td>" +
@@ -160,7 +151,6 @@ function displayGuestReport(response) {
             "<td>" + value.dob.month +"-" + value.dob.day +"-"+value.dob.year + "</td>" +
             "<td>" + value.gender + "</td>" +
             "<td>" + value.address + "</td>" +
-            "<td> <button type='button' class='btn btn-danger' onclick='deleteGuestwithID(\""+value.id+ "\")'>Delete</button></td>" +
             "</tr>";
         body.append(tr);
     });
