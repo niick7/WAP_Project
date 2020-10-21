@@ -18,7 +18,7 @@ a<!DOCTYPE html>
     <title>Online Shopping Mall</title>
     <link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script>
+     <script>
 
         var map;
         function initialize() {
@@ -95,8 +95,8 @@ a<!DOCTYPE html>
                 <div id="map_canvas"></div>
                 <section id="google-map"></section>
                 <script>
-                    $(document).ready(function($) {
-                        $('#google-map').gMap({
+                    jQuery(document).ready(function($) {
+                        jQuery('#google-map').gMap({
                             address: '45 Middle Road, Singapore 188954',
                             zoom: 15,
                             markers: [{ 'address' : '45 Middle Road, Singapore 188954' }, ]

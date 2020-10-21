@@ -23,34 +23,59 @@ public class Guest {
     String lastName;
     String address;
     String gender;
-    int createdMonth;
+    LocalDate createdDate;
 
-    public int getCreatedMonth() {
-        return createdMonth;
+
+    public Guest(String id, String firstName, String lastName, LocalDate dob, String address, String gender) {
+        this.id = id;
+        this.dob = dob;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.gender = gender;
+        this.createdDate=LocalDate.now();
+//        this.createdMonth=LocalDate.now().getDayOfMonth();
+//        this.createdYear=LocalDate.now().getYear();
+//        this.cretedDay=LocalDate.now().getMonthValue();
+
     }
 
-    public void setCreatedMonth(int createdMonth) {
-        this.createdMonth = createdMonth;
+    public LocalDate getCreatedDate() {
+        return createdDate;
     }
 
-    public int getCreatedYear() {
-        return createdYear;
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public void setCreatedYear(int createdYear) {
-        this.createdYear = createdYear;
-    }
 
-    public int getCretedDay() {
-        return cretedDay;
-    }
-
-    public void setCretedDay(int cretedDay) {
-        this.cretedDay = cretedDay;
-    }
-
-    int createdYear;
-    int cretedDay;
+//
+//    public LocalDate getCreatedMonth() {
+//        return createdDate;
+//    }
+//
+//    public void setCreatedMonth(LocalDate createdDate) {
+//        this.createdDate = createdDate;
+//    }
+//
+//    public int getCreatedYear() {
+//        return createdYear;
+//    }
+//
+//    public void setCreatedYear(int createdYear) {
+//        this.createdYear = createdYear;
+//    }
+//
+//    public int getCretedDay() {
+//        return cretedDay;
+//    }
+//
+//    public void setCretedDay(int cretedDay) {
+//        this.cretedDay = cretedDay;
+//    }
+//
+//    int createdYear;
+//    int cretedDay;
 
     public String getFirstName() {
         return firstName;
@@ -65,18 +90,6 @@ public class Guest {
 
 
 
-    public Guest(String id, String firstName, String lastName, LocalDate dob, String address, String gender) {
-        this.id = id;
-        this.dob = dob;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.gender = gender;
-        this.createdMonth=LocalDate.now().getDayOfMonth();
-        this.createdYear=LocalDate.now().getYear();
-        this.cretedDay=LocalDate.now().getMonthValue();
-
-    }
 
     public Guest(String firstName, String lastName) {
         this.firstName = firstName;

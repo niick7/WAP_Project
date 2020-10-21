@@ -6,7 +6,7 @@
     <title>Guest Report</title>
 
     <%@include file="partial/header_assests.jsp" %>
-    <script src="js/guestInfo.js"></script>
+    <script src="js/guestreport.js"></script>
 </head>
 <body>
 <%@include file="partial/top.jsp" %>
@@ -55,7 +55,8 @@
                         <th scope="col">Date of Birth</th>
                         <th scope="col"> Gender</th>
                         <th scope="col">Address</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Registration Date</th>
+
                     </tr>
                     </thead>
                     <tbody>
