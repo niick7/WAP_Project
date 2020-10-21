@@ -53,6 +53,11 @@
 
 <hr>
 <div class="container">
+    <a href="/roomreport.jsp" class="btn btn-info" role="button" aria-pressed="true">Go to Report</a>
+</div>
+
+<hr>
+<div class="container">
     <h1>List of Rooms</h1>
     <div class="row">
         <table class="table table-hover">
