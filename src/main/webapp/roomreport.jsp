@@ -41,7 +41,8 @@
                             <th scope="col">#</th>
                             <th scope="col">No</th>
                             <th scope="col">Type</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Room Fee</th>
+                            <th scope="col">Service Fee</th>
                             <th scope="col">Date</th>
                         </tr>
                         </thead>
@@ -50,7 +51,7 @@
                             float sum = 0;
                             for (int i = 0; i < list.size(); i++) {
                                 RoomLog roomlLog = list.get(i);
-                                sum += roomlLog.getPrice();
+                                sum += roomlLog.getPrice() + roomlLog.getServiceFee();
                         %>
                         <tr>
                             <th scope="row"><%=i + 1%>
@@ -61,6 +62,8 @@
                             </td>
                             <td><%=roomlLog.getPrice()%>
                             </td>
+                            <td><%=roomlLog.getServiceFee()%>
+                            </td>
                             <td><%=roomlLog.getDateUsing()%>
                             </td>
                         </tr>
@@ -69,7 +72,7 @@
                         <tfoot>
                         <tr>
                             <th id="total" colspan="3">Total revenue:</th>
-                            <th id="sum" colspan="2"><%=sum%>
+                            <th id="sum" colspan="3"><%=sum%>
                             </th>
                         </tr>
                         </tfoot>
