@@ -8,7 +8,6 @@ public class RoomLog {
   private String type;
   private float price;
   private int guestNum;
-  private boolean isAvailable;
   private LocalDate dateUsing;
 
   private boolean active; // false when room in active
@@ -22,6 +21,7 @@ public class RoomLog {
     this.price = price;
     this.guestNum = guestNum;
   }
+
 
   public boolean isActive() {
     return active;
@@ -69,14 +69,6 @@ public class RoomLog {
 
   public void setGuestNum(int guestNum) {
     this.guestNum = guestNum;
-  }
-
-  public boolean isAvailable() {
-    return isAvailable;
-  }
-
-  public void setAvailable(boolean available) {
-    isAvailable = available;
   }
 
   public LocalDate getDateUsing() {

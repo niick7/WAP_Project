@@ -2,8 +2,7 @@ package miu.hotel.controller;
 
 import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
-
-//import miu.hotel.service.RoomService;
+import miu.hotel.service.RoomService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,12 +20,12 @@ public class BookingServlet extends HttpServlet {
     String roomNo = req.getParameter("roomNo");
     String isCheckInString = req.getParameter("isCheckIn");
 
-//    RoomService.findRoomByRoomNum(roomNo)
-//        .filter(Room::isActive)
-//        .ifPresent(room -> {
-//          boolean isCheckIn = Boolean.valueOf(isCheckInString);
-//          room.setAvailable(isCheckIn);
-//        }); // find and uncheck
+    RoomService.findRoomByRoomNum(roomNo)
+        .filter(Room::isActive)
+        .ifPresent(room -> {
+          boolean isCheckIn = Boolean.valueOf(isCheckInString);
+          room.setAvailable(isCheckIn);
+        }); // find and uncheck
 
     req.getRequestDispatcher("RoomServlet").forward(req, resp);
   }
