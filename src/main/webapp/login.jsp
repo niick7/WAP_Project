@@ -13,8 +13,10 @@
 
 <body>
 <div class="container">
+
     <div class="row justify-content-md-center">
         <div class="col-md-auto">
+            <h1>Login Form</h1>
             <form action="LoginServlet" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>

@@ -1,7 +1,7 @@
 package miu.hotel.controller;
 
 import com.google.gson.Gson;
-import miu.hotel.database.Menu;
+import miu.hotel.model.Menu;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @WebServlet("/menus")
 public class CreateMenuServlet extends HttpServlet {

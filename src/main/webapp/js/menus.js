@@ -12,7 +12,7 @@ $(function (){
       $.each(data, function(index, menu){
         $("#list_menus tbody").append(
           "<tr>" +
-          "<td>" + (index + 1) + "</td>" +
+          "<td>" + menu.id + "</td>" +
           "<td>" + menu.item_name + "</td>" +
           "<td>" + menu.price.toFixed(2) + "</td>" +
           "<td>" + "</td>" +
