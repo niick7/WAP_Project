@@ -10,6 +10,9 @@ public class RoomLog {
   private int guestNum;
   private LocalDate dateUsing;
 
+  private String customerId;
+  private long serviceFee;
+
   private boolean active; // false when room in active
 
   public RoomLog(){
@@ -22,6 +25,21 @@ public class RoomLog {
     this.guestNum = guestNum;
   }
 
+  public String getCustomerId() {
+    return customerId;
+  }
+
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+  }
+
+  public long getServiceFee() {
+    return serviceFee;
+  }
+
+  public void setServiceFee(long serviceFee) {
+    this.serviceFee = serviceFee;
+  }
 
   public boolean isActive() {
     return active;
