@@ -53,7 +53,7 @@
 
 <hr>
 <div class="container">
-    <a href="/roomreport.jsp" class="btn btn-info" role="button" aria-pressed="true">Go to Report</a>
+    <a href="roomreport.jsp" class="btn btn-info" role="button" aria-pressed="true">Go to Report</a>
 </div>
 
 <hr>
@@ -68,7 +68,7 @@
                 <th scope="col">Price</th>
                 <th scope="col">Max guest</th>
                 <th scope="col">Book Room</th>
-                <th scope="col">action</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
