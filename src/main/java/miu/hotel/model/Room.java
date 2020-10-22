@@ -1,6 +1,8 @@
 package miu.hotel.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Room {
   private long id;
@@ -9,6 +11,7 @@ public class Room {
   private float price;
   private int guestNum;
   private boolean isAvailable;
+  private List<Menu> orderedItems = new ArrayList<>();
 
   private boolean active; // false when room in active
 
@@ -25,6 +28,8 @@ public class Room {
   public boolean isActive() {
     return active;
   }
+
+  public boolean isBooked() { return !active && isAvailable; }
 
   public void setActive(boolean active) {
     this.active = active;
@@ -78,4 +83,11 @@ public class Room {
     isAvailable = available;
   }
 
+  public List<Menu> getOrderedItems() {
+    return orderedItems;
+  }
+
+  public void resetOrderedItems() {
+    this.orderedItems = new ArrayList<>();
+  }
 }

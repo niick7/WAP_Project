@@ -1,5 +1,6 @@
 package miu.hotel.service;
 
+import miu.hotel.database.Menus;
 import miu.hotel.database.Rooms;
 import miu.hotel.model.Room;
 
@@ -44,5 +45,18 @@ public class RoomService {
     return Rooms.roomList.stream()
         .filter(Room::isActive)
         .collect(Collectors.toList());
+  }
+
+  public static List<Room> getBookedRooms() {
+    return Rooms.roomList.stream()
+      .filter(Room::isBooked)
+      .collect(Collectors.toList());
+  }
+
+  public static Room findByRoomNo(String roomNo) {
+    return Rooms.roomList.stream()
+      .filter(x -> roomNo.equals(x.getRoomNo()))
+      .findAny()
+      .orElse(null);
   }
 }

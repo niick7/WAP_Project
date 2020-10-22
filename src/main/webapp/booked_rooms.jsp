@@ -1,4 +1,5 @@
-<%--
+<%@ page import="miu.hotel.service.RoomService" %>
+<%@ page import="miu.hotel.database.Menus" %><%--
   Created by IntelliJ IDEA.
   User: nhanxautrai
   Date: 10/21/20
@@ -12,6 +13,7 @@
   <head>
     <title>Booked Rooms</title>
     <%@include file="partial/header_assests.jsp" %>
+    <script src="js/order_dish.js" type="application/javascript"></script>
   </head>
 
   <body>
@@ -32,17 +34,34 @@
                 </tr>
               </thead>
               <tbody>
-    <%--          <c:forEach var="menu" items="${sessionScope.menus}">--%>
-    <%--            <tr>--%>
-    <%--              <td>${menu.id}</td>--%>
-    <%--              <td>${menu.item_name}</td>--%>
-    <%--              <td>${String.format("%.2f", menu.price)}</td>--%>
-    <%--              <td>--%>
-    <%--                <a href="edit_menu?id=${menu.id}" type="button" class="btn btn-warning">Edit</a>--%>
-    <%--                <a href="delete_menu?id=${menu.id}" type="button" class="btn btn-danger ml-1" onclick="return confirm('Are you sure?')">Delete</a>--%>
-    <%--              </td>--%>
-    <%--            </tr>--%>
-    <%--          </c:forEach>--%>
+                <% request.setAttribute("bookedRooms", RoomService.getBookedRooms());%>
+                <% request.setAttribute("menus", Menus.menuList);%>
+                <c:forEach var="room" items="${bookedRooms}">
+                  <tr>
+                    <td>${room.roomNo}</td>
+                    <td>${room.type}</td>
+                    <td>${String.format("%.2f", room.price)}</td>
+                    <td>
+                      <select class="form-control w-50 d-inline" id="select_${room.roomNo}">
+                        <c:forEach var="menu" items="${menus}">
+                          <option value="${menu.id}">${menu.item_name}</option>
+                        </c:forEach>
+                      </select>
+                      <form class="order_dish d-inline" action="order_dish" method="post">
+                        <input type="hidden" name="room_no" value="${room.roomNo}">
+                        <input type="hidden" name="menu_id" value="">
+                        <input type="submit" value="Add" class="btn btn-primary" style="margin-top: -4px;">
+                      </form>
+                      <ol id="ol_${room.roomNo}" class="pl-4 pt-1">
+                        <c:forEach var="m" items="${room.orderedItems}">
+                          <li class="pb-1">
+                            ${m.item_name} - <a href="unOrderDish?room_no=${room.roomNo}&menu_id=${m.id}" onclick="return confirm('Are you sure?');">Remove</a>
+                          </li>
+                        </c:forEach>
+                      </ol>
+                    </td>
+                  </tr>
+                </c:forEach>
               </tbody>
             </table>
           </div>
