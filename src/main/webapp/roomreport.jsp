@@ -47,10 +47,11 @@
                         </thead>
                         <tbody>
                         <%
-                            float sum = 0;
+                            double sum = 0.0;
                             for (int i = 0; i < list.size(); i++) {
                                 RoomLog roomlLog = list.get(i);
-                                sum += roomlLog.getPrice() + roomlLog.getServiceFee();
+                                sum += Double.parseDouble(Float.toString(roomlLog.getPrice()));
+                                sum += roomlLog.getServiceFee();
                         %>
                         <tr>
                             <th scope="row"><%=i + 1%>

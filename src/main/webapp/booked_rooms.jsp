@@ -44,7 +44,7 @@
                     <td>
                       <select class="form-control w-50 d-inline" id="select_${room.roomNo}">
                         <c:forEach var="menu" items="${menus}">
-                          <option value="${menu.id}">${menu.item_name}</option>
+                          <option value="${menu.id}">${menu.item_name} (${menu.price}$)</option>
                         </c:forEach>
                       </select>
                       <form class="order_dish d-inline" action="order_dish" method="post">
@@ -55,7 +55,7 @@
                       <ol id="ol_${room.roomNo}" class="pl-4 pt-1">
                         <c:forEach var="m" items="${room.orderedItems}">
                           <li class="pb-1">
-                            ${m.item_name} - <a href="unOrderDish?room_no=${room.roomNo}&menu_id=${m.id}" onclick="return confirm('Are you sure?');">Remove</a>
+                            ${m.item_name} (${m.price}$) - <a href="unOrderDish?room_no=${room.roomNo}&menu_id=${m.id}" onclick="return confirm('Are you sure?');">Remove</a>
                           </li>
                         </c:forEach>
                       </ol>

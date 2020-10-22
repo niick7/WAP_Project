@@ -12,7 +12,7 @@ public class RoomLog {
   private LocalDate dateUsing;
 
   private String customerId;
-  private long serviceFee;
+  private double serviceFee;
 
   private boolean active; // false when room in active
 
@@ -42,11 +42,11 @@ public class RoomLog {
     this.customerId = customerId;
   }
 
-  public long getServiceFee() {
+  public double getServiceFee() {
     return serviceFee;
   }
 
-  public void setServiceFee(long serviceFee) {
+  public void setServiceFee(double serviceFee) {
     this.serviceFee = serviceFee;
   }
 

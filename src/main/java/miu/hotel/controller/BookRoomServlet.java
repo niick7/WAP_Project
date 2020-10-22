@@ -1,6 +1,8 @@
 package miu.hotel.controller;
 
+import miu.hotel.database.RoomLogs;
 import miu.hotel.database.Rooms;
+import miu.hotel.model.Menu;
 import miu.hotel.model.Room;
 import miu.hotel.model.RoomLog;
 import miu.hotel.service.RoomLogService;
@@ -40,6 +42,16 @@ public class BookRoomServlet extends HttpServlet {
             roomLog.setDateUsing(LocalDate.now());
             roomLog.setGuestId(guestId);
             RoomLogService.add(roomLog);
+          } else {
+            // Checkout case
+            RoomLog roomLog = RoomLogService.getLatestRoomLogByRoomNo(room.getRoomNo());
+            double serviceFee = 0.0;
+            for(Menu menu : room.getOrderedItems()) {
+              serviceFee += menu.getPrice();
+            }
+            roomLog.setServiceFee(serviceFee);
+            // Reset room ordered items
+            room.resetOrderedItems();
           }
         }); // find and uncheck
 

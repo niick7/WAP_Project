@@ -29,7 +29,7 @@ public class Room {
     return active;
   }
 
-  public boolean isBooked() { return !active && isAvailable; }
+  public boolean isBooked() { return active && !isAvailable; }
 
   public void setActive(boolean active) {
     this.active = active;
