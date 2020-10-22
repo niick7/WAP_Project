@@ -10,7 +10,7 @@
 
 <html>
   <head>
-    <title>Booked</title>
+    <title>Booked Rooms</title>
     <%@include file="partial/header_assests.jsp" %>
   </head>
 

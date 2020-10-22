@@ -1,4 +1,4 @@
-<%--
+<%@ page import="miu.hotel.database.Menus" %><%--
   Created by IntelliJ IDEA.
   User: nhanxautrai
   Date: 10/21/20
@@ -41,7 +41,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="menu" items="${sessionScope.menus}">
+                                <% request.setAttribute("menus", Menus.menuList);%>
+                                <c:forEach var="menu" items="${menus}">
                                     <tr>
                                         <td>${menu.id}</td>
                                         <td>${menu.item_name}</td>

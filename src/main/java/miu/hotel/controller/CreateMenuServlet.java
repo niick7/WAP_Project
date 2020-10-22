@@ -9,11 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.ArrayList;
 
 @WebServlet("/menus")
 public class CreateMenuServlet extends HttpServlet {
@@ -22,15 +20,8 @@ public class CreateMenuServlet extends HttpServlet {
     String item_name = req.getParameter("item_name");
     double price = Double.parseDouble(req.getParameter("price"));
 
-    HttpSession session = req.getSession();
-    List<Menu> menus = new ArrayList<>();
-    if(session.getAttribute("menus") != null) {
-//      menus = ((List<Menu>) session.getAttribute("menus"));
-      menus = Menus.menuList;
-    }
-    Menu menu = new Menu(item_name, price);
-    menus.add(menu);
-    session.setAttribute("menus", menus);
+    List<Menu> menus = Menus.menuList;
+    menus.add(new Menu(item_name, price));
     Gson json = new Gson();
 
     PrintWriter out = resp.getWriter();
