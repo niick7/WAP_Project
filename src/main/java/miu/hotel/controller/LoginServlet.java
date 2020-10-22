@@ -16,7 +16,6 @@ import java.io.PrintWriter;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
-        System.out.println ("doPost");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();

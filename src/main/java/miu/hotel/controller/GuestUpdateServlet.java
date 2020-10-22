@@ -20,11 +20,9 @@ import java.util.List;
 public class GuestUpdateServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    System.out.println("Reprot form");
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         HttpSession session =  request.getSession();
-     //   List<Guest> list = (List<Guest>) session.getAttribute("guestlist");
         List<Guest> list = Guests.guestlist;
         LocalDate dob=null;
         if (request.getParameter("dob")!=null)
@@ -37,7 +35,6 @@ public class GuestUpdateServlet extends HttpServlet {
         String gender = request.getParameter(("gender"));
         LocalDate finalDob = dob;
         Guest guest=list.stream().filter(a -> a.getId().equals(guestId)).findFirst().get();
-        System.out.println(guest);
         guest.setAddress(address);
         guest.setDob(finalDob);
         guest.setFirsName(firstname);
@@ -45,10 +42,8 @@ public class GuestUpdateServlet extends HttpServlet {
         guest.setLastName(lastname);
         String json = "";
         json = new Gson().toJson(list);
-        System.out.println("json: " + json);
         response.setContentType("application/json");
         out.write(json);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

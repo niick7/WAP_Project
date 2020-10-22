@@ -15,10 +15,7 @@ import java.io.PrintWriter;
 public class GuestDeleteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         String guestId = request.getParameter("guestid");
-        System.out.println("Guest ID: "+guestId);
-        System.out.println("GuestDeleteServlet");
 //        List<Guest> list = Guests.guestlist;
 //        if (list==null) {
 //            list = new ArrayList<>();
@@ -29,7 +26,6 @@ public class GuestDeleteServlet extends HttpServlet {
 //        Guests.guestlist.remove(guestId);
         String json ="";
         json = new Gson().toJson(Guests.guestlist);
-        System.out.println("json: "+ json);
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         out.write(json);

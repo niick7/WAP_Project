@@ -21,7 +21,6 @@ import java.util.List;
 public class GuestServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Go in Guest Servlet");
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
      //   List<Guest> db =  Guests.guestlist;
@@ -44,7 +43,6 @@ public class GuestServlet extends HttpServlet {
 
             String json = "";
             json = new Gson().toJson(list);
-            System.out.println("json: " + json);
             response.setContentType("application/json");
             out.write(json);
     }

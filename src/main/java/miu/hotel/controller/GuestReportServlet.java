@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 public class GuestReportServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        System.out.println("GuestReportServlet");
         LocalDate from = LocalDate.parse(request.getParameter("from"));
         LocalDate to = LocalDate.parse(request.getParameter("to"));
         int frommonth = (LocalDate.parse(request.getParameter("from")).getMonthValue());
@@ -30,9 +29,8 @@ public class GuestReportServlet extends HttpServlet {
         int tomonth = (LocalDate.parse(request.getParameter("to")).getMonthValue());
         int today = (LocalDate.parse(request.getParameter("to")).getDayOfMonth());
         int toyear = (LocalDate.parse(request.getParameter("to")).getYear());
-        System.out.println(today + " "+ tomonth +" "+toyear);
         response.setContentType("application/json");
-    List<Guest> list= Guests.guestlist.stream()
+        List<Guest> list= Guests.guestlist.stream()
             .filter(e -> e.getCreatedDate().compareTo(from)>=0
             && e.getCreatedDate().compareTo(to)<=0
             )
@@ -42,10 +40,8 @@ public class GuestReportServlet extends HttpServlet {
         String nul;
         String json = "";
         json = new Gson().toJson(list);
-        System.out.println("json: " + json);
         response.setContentType("application/json");
         out.write(json);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

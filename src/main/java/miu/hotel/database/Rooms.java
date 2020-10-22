@@ -23,7 +23,7 @@ public class Rooms {
     r.setRoomNo("002");
     r.setType(RoomType.DELUXE.getName());
     r.setPrice(2000);
-    r.setAvailable(false);
+    r.setAvailable(true);
     r.setActive(true);
     roomList.add(r);
 
